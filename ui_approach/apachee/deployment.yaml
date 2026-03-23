@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: apachee-deploy
+  name: apachee-deploy
+  namespace: apachee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apachee-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: apachee-deploy
+    spec:
+      containers:
+      - image: apachee:latest
+        name: apachee
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
